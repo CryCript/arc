@@ -1,0 +1,137 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  company   DbCompany? @relation(fields: [company], references: [id])
+  company   String?
+  createdAt DateTime   @default(now())
+  email     String?    @unique
+  firstName String?
+  id        String     @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime   @updatedAt
+  username  String     @unique
+}
+
+model DbCompany {
+  address     String?
+  company     String?
+  createdAt   DateTime     @default(now())
+  dbEmployees DbEmployee[]
+  email       String?
+  id          String       @id @default(cuid())
+  telp        String?
+  updatedAt   DateTime     @updatedAt
+  users       User[]
+}
+
+model DbEmployee {
+  company       DbCompany?  @relation(fields: [company], references: [id])
+  company       String?
+  createdAt     DateTime    @default(now())
+  id            String      @id @default(cuid())
+  name          String?
+  sbEmployees   SbEmployee? @relation(fields: [sbEmployeesId], references: [id])
+  sbEmployeesId String?     @unique
+  updatedAt     DateTime    @updatedAt
+}
+
+model SbEmployee {
+  createdAt        DateTime       @default(now())
+  employee         DbEmployee?
+  id               String         @id @default(cuid())
+  pickupPoint      SbPickupPoint? @relation(fields: [pickupPoint], references: [id])
+  pickupPoint      String?
+  sbOrders         SbOrder?       @relation(fields: [sbOrdersId], references: [id])
+  sbOrdersId       String?        @unique
+  updatedAt        DateTime       @updatedAt
+  vehicleNoShift_1 SbVehicle?     @relation(name: "vehicleNoShift_1", fields: [noUnit], references: [id])
+  noUnit           String?
+  vehicleNoShift_2 SbVehicle?     @relation(name: "sbEmployee", fields: [noUnit], references: [id])
+  noUnit           String?
+}
+
+model SbRoute {
+  createdAt      DateTime        @default(now())
+  id             String          @id @default(cuid())
+  maps           String?
+  route          String?
+  sbPickupPoints SbPickupPoint[]
+  sbVehicles     SbVehicle[]
+  updatedAt      DateTime        @updatedAt
+}
+
+model SbPickupPoint {
+  createdAt   DateTime     @default(now())
+  id          String       @id @default(cuid())
+  maps        String?
+  pickupPoint String?
+  route       SbRoute?     @relation(fields: [route], references: [id])
+  route       String?
+  sbEmployees SbEmployee[]
+  updatedAt   DateTime     @updatedAt
+}
+
+model SbProvider {
+  address    String?
+  company    String?
+  createdAt  DateTime    @default(now())
+  email      String?
+  id         String      @id @default(cuid())
+  phone      String?
+  sbVehicles SbVehicle[]
+  updatedAt  DateTime    @updatedAt
+}
+
+model SbVehicle {
+  company      SbProvider?               @relation(fields: [company], references: [id])
+  company      String?
+  createdAt    DateTime                  @default(now())
+  driver       String?
+  driverPhoto  Json?
+  email        String?
+  id           String                    @id @default(cuid())
+  noPol        String?
+  noUnit       String?
+  phoneNo      String?
+  route        SbRoute?                  @relation(fields: [route], references: [id])
+  route        String?
+  sbEmployee   SbEmployee[]              @relation(name: "sbEmployee")
+  sbEmployees  SbEmployee[]              @relation(name: "vehicleNoShift_1")
+  shift        EnumSbVehicleShift[]
+  updatedAt    DateTime                  @updatedAt
+  vehiclePhoto Json?
+  vehicleType  EnumSbVehicleVehicleType?
+}
+
+model SbOrder {
+  createdAt DateTime          @default(now())
+  date      DateTime?
+  employee  SbEmployee?
+  id        String            @id @default(cuid())
+  shift     EnumSbOrderShift?
+  updatedAt DateTime          @updatedAt
+}
+
+enum EnumSbVehicleShift {
+  Shift_1
+  Shift_2
+}
+
+enum EnumSbVehicleVehicleType {
+  BigBus
+  MiniBus
+}
+
+enum EnumSbOrderShift {
+  Shift_1
+  Shift_2
+}
