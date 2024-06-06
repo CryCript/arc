@@ -1,0 +1,536 @@
+[
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbCompany",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbCompany",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "DbCompany",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbCompany",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbCompany",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbCompany",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbCompany",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbCompany",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "DbCompany",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "DbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbEmployee",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbEmployee",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbEmployee",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbEmployee",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbEmployee",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "DbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "DbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "DbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbEmployee",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbEmployee",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbEmployee",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbEmployee",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbEmployee",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbEmployee",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbEmployee",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbEmployee",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbRoute",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbRoute",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbRoute",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbRoute",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbRoute",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbRoute",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbRoute",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbRoute",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbRoute",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbPickupPoint",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbPickupPoint",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbPickupPoint",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbPickupPoint",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbPickupPoint",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbPickupPoint",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbPickupPoint",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbPickupPoint",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbPickupPoint",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbProvider",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbProvider",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbProvider",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbProvider",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbProvider",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbProvider",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbProvider",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbProvider",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbProvider",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbVehicle",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbVehicle",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbVehicle",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbVehicle",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbVehicle",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbVehicle",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbVehicle",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbVehicle",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbVehicle",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbOrder",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbOrder",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbOrder",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbOrder",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbOrder",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbOrder",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbOrder",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbOrder",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbOrder",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "SbOrder",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "superAdmin",
+    "resource": "SbOrder",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "SbOrder",
+    "action": "read:any",
+    "attributes": "*"
+  }
+]
