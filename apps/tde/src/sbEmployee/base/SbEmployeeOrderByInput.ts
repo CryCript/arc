@@ -72,7 +72,7 @@ class SbEmployeeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  noUnit?: SortOrder;
+  shift_1UnitIdId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -83,7 +83,7 @@ class SbEmployeeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  noUnit?: SortOrder;
+  shift_2UnitIdId?: SortOrder;
 
   @ApiProperty({
     required: false,
