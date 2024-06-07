@@ -72,7 +72,18 @@ class SbEmployeeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  sbOrdersId?: SortOrder;
+  noUnit?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  noUnit?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -84,28 +95,6 @@ class SbEmployeeOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  noUnit?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  noUnit?: SortOrder;
 }
 
 export { SbEmployeeOrderByInput as SbEmployeeOrderByInput };

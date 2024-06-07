@@ -50,7 +50,7 @@ class SbPickupPointUpdateInput {
   @Field(() => SbRouteWhereUniqueInput, {
     nullable: true,
   })
-  route?: SbRouteWhereUniqueInput | null;
+  routeId?: SbRouteWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

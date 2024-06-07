@@ -56,25 +56,19 @@ export class SbVehicleControllerBase {
       data: {
         ...data,
 
-        company: data.company
+        providerId: data.providerId
           ? {
-              connect: data.company,
+              connect: data.providerId,
             }
           : undefined,
 
-        route: data.route
+        routeId: data.routeId
           ? {
-              connect: data.route,
+              connect: data.routeId,
             }
           : undefined,
       },
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         driver: true,
         driverPhoto: true,
@@ -84,7 +78,13 @@ export class SbVehicleControllerBase {
         noUnit: true,
         phoneNo: true,
 
-        route: {
+        providerId: {
+          select: {
+            id: true,
+          },
+        },
+
+        routeId: {
           select: {
             id: true,
           },
@@ -115,12 +115,6 @@ export class SbVehicleControllerBase {
     return this.service.sbVehicles({
       ...args,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         driver: true,
         driverPhoto: true,
@@ -130,7 +124,13 @@ export class SbVehicleControllerBase {
         noUnit: true,
         phoneNo: true,
 
-        route: {
+        providerId: {
+          select: {
+            id: true,
+          },
+        },
+
+        routeId: {
           select: {
             id: true,
           },
@@ -162,12 +162,6 @@ export class SbVehicleControllerBase {
     const result = await this.service.sbVehicle({
       where: params,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         driver: true,
         driverPhoto: true,
@@ -177,7 +171,13 @@ export class SbVehicleControllerBase {
         noUnit: true,
         phoneNo: true,
 
-        route: {
+        providerId: {
+          select: {
+            id: true,
+          },
+        },
+
+        routeId: {
           select: {
             id: true,
           },
@@ -219,25 +219,19 @@ export class SbVehicleControllerBase {
         data: {
           ...data,
 
-          company: data.company
+          providerId: data.providerId
             ? {
-                connect: data.company,
+                connect: data.providerId,
               }
             : undefined,
 
-          route: data.route
+          routeId: data.routeId
             ? {
-                connect: data.route,
+                connect: data.routeId,
               }
             : undefined,
         },
         select: {
-          company: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           driver: true,
           driverPhoto: true,
@@ -247,7 +241,13 @@ export class SbVehicleControllerBase {
           noUnit: true,
           phoneNo: true,
 
-          route: {
+          providerId: {
+            select: {
+              id: true,
+            },
+          },
+
+          routeId: {
             select: {
               id: true,
             },
@@ -287,12 +287,6 @@ export class SbVehicleControllerBase {
       return await this.service.deleteSbVehicle({
         where: params,
         select: {
-          company: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           driver: true,
           driverPhoto: true,
@@ -302,7 +296,13 @@ export class SbVehicleControllerBase {
           noUnit: true,
           phoneNo: true,
 
-          route: {
+          providerId: {
+            select: {
+              id: true,
+            },
+          },
+
+          routeId: {
             select: {
               id: true,
             },
@@ -538,7 +538,7 @@ export class SbVehicleControllerBase {
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -546,31 +546,25 @@ export class SbVehicleControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (results === null) {
@@ -665,7 +659,7 @@ export class SbVehicleControllerBase {
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -673,31 +667,25 @@ export class SbVehicleControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (results === null) {

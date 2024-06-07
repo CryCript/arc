@@ -30,7 +30,7 @@ class UserCreateInput {
   @Field(() => DbCompanyWhereUniqueInput, {
     nullable: true,
   })
-  company?: DbCompanyWhereUniqueInput | null;
+  companyId?: DbCompanyWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

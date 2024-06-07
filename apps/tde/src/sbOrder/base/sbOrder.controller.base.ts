@@ -52,9 +52,9 @@ export class SbOrderControllerBase {
       data: {
         ...data,
 
-        employee: data.employee
+        employeeId: data.employeeId
           ? {
-              connect: data.employee,
+              connect: data.employeeId,
             }
           : undefined,
       },
@@ -62,7 +62,7 @@ export class SbOrderControllerBase {
         createdAt: true,
         date: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -95,7 +95,7 @@ export class SbOrderControllerBase {
         createdAt: true,
         date: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -129,7 +129,7 @@ export class SbOrderControllerBase {
         createdAt: true,
         date: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -170,9 +170,9 @@ export class SbOrderControllerBase {
         data: {
           ...data,
 
-          employee: data.employee
+          employeeId: data.employeeId
             ? {
-                connect: data.employee,
+                connect: data.employeeId,
               }
             : undefined,
         },
@@ -180,7 +180,7 @@ export class SbOrderControllerBase {
           createdAt: true,
           date: true,
 
-          employee: {
+          employeeId: {
             select: {
               id: true,
             },
@@ -222,7 +222,7 @@ export class SbOrderControllerBase {
           createdAt: true,
           date: true,
 
-          employee: {
+          employeeId: {
             select: {
               id: true,
             },

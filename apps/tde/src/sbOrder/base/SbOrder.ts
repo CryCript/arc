@@ -50,7 +50,7 @@ class SbOrder {
   @ValidateNested()
   @Type(() => SbEmployee)
   @IsOptional()
-  employee?: SbEmployee | null;
+  employeeId?: SbEmployee | null;
 
   @ApiProperty({
     required: true,

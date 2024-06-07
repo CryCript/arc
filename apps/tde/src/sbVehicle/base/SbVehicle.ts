@@ -11,18 +11,18 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { SbProvider } from "../../sbProvider/base/SbProvider";
 import {
-  ValidateNested,
-  IsOptional,
   IsDate,
   IsString,
+  IsOptional,
+  ValidateNested,
   IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
+import { SbProvider } from "../../sbProvider/base/SbProvider";
 import { SbRoute } from "../../sbRoute/base/SbRoute";
 import { SbEmployee } from "../../sbEmployee/base/SbEmployee";
 import { EnumSbVehicleShift } from "./EnumSbVehicleShift";
@@ -30,15 +30,6 @@ import { EnumSbVehicleVehicleType } from "./EnumSbVehicleVehicleType";
 
 @ObjectType()
 class SbVehicle {
-  @ApiProperty({
-    required: false,
-    type: () => SbProvider,
-  })
-  @ValidateNested()
-  @Type(() => SbProvider)
-  @IsOptional()
-  company?: SbProvider | null;
-
   @ApiProperty({
     required: true,
   })
@@ -122,12 +113,21 @@ class SbVehicle {
 
   @ApiProperty({
     required: false,
+    type: () => SbProvider,
+  })
+  @ValidateNested()
+  @Type(() => SbProvider)
+  @IsOptional()
+  providerId?: SbProvider | null;
+
+  @ApiProperty({
+    required: false,
     type: () => SbRoute,
   })
   @ValidateNested()
   @Type(() => SbRoute)
   @IsOptional()
-  route?: SbRoute | null;
+  routeId?: SbRoute | null;
 
   @ApiProperty({
     required: false,

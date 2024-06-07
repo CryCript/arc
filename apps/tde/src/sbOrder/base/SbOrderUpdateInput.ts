@@ -39,7 +39,7 @@ class SbOrderUpdateInput {
   @Field(() => SbEmployeeWhereUniqueInput, {
     nullable: true,
   })
-  employee?: SbEmployeeWhereUniqueInput | null;
+  employeeId?: SbEmployeeWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

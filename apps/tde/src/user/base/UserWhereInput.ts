@@ -29,7 +29,7 @@ class UserWhereInput {
   @Field(() => DbCompanyWhereUniqueInput, {
     nullable: true,
   })
-  company?: DbCompanyWhereUniqueInput;
+  companyId?: DbCompanyWhereUniqueInput;
 
   @ApiProperty({
     required: false,

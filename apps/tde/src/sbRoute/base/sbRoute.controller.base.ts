@@ -219,7 +219,7 @@ export class SbRouteControllerBase {
         maps: true,
         pickupPoint: true,
 
-        route: {
+        routeId: {
           select: {
             id: true,
           },
@@ -318,12 +318,6 @@ export class SbRouteControllerBase {
     const results = await this.service.findSbVehicles(params.id, {
       ...query,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         driver: true,
         driverPhoto: true,
@@ -333,7 +327,13 @@ export class SbRouteControllerBase {
         noUnit: true,
         phoneNo: true,
 
-        route: {
+        providerId: {
+          select: {
+            id: true,
+          },
+        },
+
+        routeId: {
           select: {
             id: true,
           },

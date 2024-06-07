@@ -196,19 +196,19 @@ export class SbVehicleServiceBase {
       .sbEmployees(args);
   }
 
-  async getCompany(parentId: string): Promise<PrismaSbProvider | null> {
+  async getProviderId(parentId: string): Promise<PrismaSbProvider | null> {
     return this.prisma.sbVehicle
       .findUnique({
         where: { id: parentId },
       })
-      .company();
+      .providerId();
   }
 
-  async getRoute(parentId: string): Promise<PrismaSbRoute | null> {
+  async getRouteId(parentId: string): Promise<PrismaSbRoute | null> {
     return this.prisma.sbVehicle
       .findUnique({
         where: { id: parentId },
       })
-      .route();
+      .routeId();
   }
 }

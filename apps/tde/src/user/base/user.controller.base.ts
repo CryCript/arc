@@ -50,14 +50,14 @@ export class UserControllerBase {
       data: {
         ...data,
 
-        company: data.company
+        companyId: data.companyId
           ? {
-              connect: data.company,
+              connect: data.companyId,
             }
           : undefined,
       },
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -92,7 +92,7 @@ export class UserControllerBase {
     return this.service.users({
       ...args,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -128,7 +128,7 @@ export class UserControllerBase {
     const result = await this.service.user({
       where: params,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -174,14 +174,14 @@ export class UserControllerBase {
         data: {
           ...data,
 
-          company: data.company
+          companyId: data.companyId
             ? {
-                connect: data.company,
+                connect: data.companyId,
               }
             : undefined,
         },
         select: {
-          company: {
+          companyId: {
             select: {
               id: true,
             },
@@ -225,7 +225,7 @@ export class UserControllerBase {
       return await this.service.deleteUser({
         where: params,
         select: {
-          company: {
+          companyId: {
             select: {
               id: true,
             },

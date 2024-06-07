@@ -49,11 +49,11 @@ export class SbOrderServiceBase {
     return this.prisma.sbOrder.delete(args);
   }
 
-  async getEmployee(parentId: string): Promise<PrismaSbEmployee | null> {
+  async getEmployeeId(parentId: string): Promise<PrismaSbEmployee | null> {
     return this.prisma.sbOrder
       .findUnique({
         where: { id: parentId },
       })
-      .employee();
+      .employeeId();
   }
 }
