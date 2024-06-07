@@ -224,7 +224,7 @@ export class DbCompanyControllerBase {
     const results = await this.service.findDbEmployees(params.id, {
       ...query,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -333,7 +333,7 @@ export class DbCompanyControllerBase {
     const results = await this.service.findUsers(params.id, {
       ...query,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },

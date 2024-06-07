@@ -14,9 +14,9 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   SbEmployee as PrismaSbEmployee,
+  SbOrder as PrismaSbOrder,
   DbEmployee as PrismaDbEmployee,
   SbPickupPoint as PrismaSbPickupPoint,
-  SbOrder as PrismaSbOrder,
   SbVehicle as PrismaSbVehicle,
 } from "@prisma/client";
 
@@ -55,43 +55,48 @@ export class SbEmployeeServiceBase {
     return this.prisma.sbEmployee.delete(args);
   }
 
-  async getEmployee(parentId: string): Promise<PrismaDbEmployee | null> {
+  async findSbOrders(
+    parentId: string,
+    args: Prisma.SbOrderFindManyArgs
+  ): Promise<PrismaSbOrder[]> {
     return this.prisma.sbEmployee
-      .findUnique({
+      .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .employee();
+      .sbOrders(args);
   }
 
-  async getPickupPoint(parentId: string): Promise<PrismaSbPickupPoint | null> {
+  async getEmployeeId(parentId: string): Promise<PrismaDbEmployee | null> {
     return this.prisma.sbEmployee
       .findUnique({
         where: { id: parentId },
       })
-      .pickupPoint();
+      .employeeId();
   }
 
-  async getSbOrders(parentId: string): Promise<PrismaSbOrder | null> {
+  async getPickupPointId(
+    parentId: string
+  ): Promise<PrismaSbPickupPoint | null> {
     return this.prisma.sbEmployee
       .findUnique({
         where: { id: parentId },
       })
-      .sbOrders();
+      .pickupPointId();
   }
 
-  async getVehicleNoShift_1(parentId: string): Promise<PrismaSbVehicle | null> {
+  async getShift_1UnitId(parentId: string): Promise<PrismaSbVehicle | null> {
     return this.prisma.sbEmployee
       .findUnique({
         where: { id: parentId },
       })
-      .vehicleNoShift_1();
+      .shift_1UnitId();
   }
 
-  async getVehicleNoShift_2(parentId: string): Promise<PrismaSbVehicle | null> {
+  async getShift_2UnitId(parentId: string): Promise<PrismaSbVehicle | null> {
     return this.prisma.sbEmployee
       .findUnique({
         where: { id: parentId },
       })
-      .vehicleNoShift_2();
+      .shift_2UnitId();
   }
 }

@@ -74,11 +74,11 @@ export class UserServiceBase {
     return this.prisma.user.delete(args);
   }
 
-  async getCompany(parentId: string): Promise<PrismaDbCompany | null> {
+  async getCompanyId(parentId: string): Promise<PrismaDbCompany | null> {
     return this.prisma.user
       .findUnique({
         where: { id: parentId },
       })
-      .company();
+      .companyId();
   }
 }

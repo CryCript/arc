@@ -66,11 +66,11 @@ export class SbPickupPointServiceBase {
       .sbEmployees(args);
   }
 
-  async getRoute(parentId: string): Promise<PrismaSbRoute | null> {
+  async getRouteId(parentId: string): Promise<PrismaSbRoute | null> {
     return this.prisma.sbPickupPoint
       .findUnique({
         where: { id: parentId },
       })
-      .route();
+      .routeId();
   }
 }

@@ -55,9 +55,9 @@ export class SbPickupPointControllerBase {
       data: {
         ...data,
 
-        route: data.route
+        routeId: data.routeId
           ? {
-              connect: data.route,
+              connect: data.routeId,
             }
           : undefined,
       },
@@ -67,7 +67,7 @@ export class SbPickupPointControllerBase {
         maps: true,
         pickupPoint: true,
 
-        route: {
+        routeId: {
           select: {
             id: true,
           },
@@ -102,7 +102,7 @@ export class SbPickupPointControllerBase {
         maps: true,
         pickupPoint: true,
 
-        route: {
+        routeId: {
           select: {
             id: true,
           },
@@ -136,7 +136,7 @@ export class SbPickupPointControllerBase {
         maps: true,
         pickupPoint: true,
 
-        route: {
+        routeId: {
           select: {
             id: true,
           },
@@ -175,9 +175,9 @@ export class SbPickupPointControllerBase {
         data: {
           ...data,
 
-          route: data.route
+          routeId: data.routeId
             ? {
-                connect: data.route,
+                connect: data.routeId,
               }
             : undefined,
         },
@@ -187,7 +187,7 @@ export class SbPickupPointControllerBase {
           maps: true,
           pickupPoint: true,
 
-          route: {
+          routeId: {
             select: {
               id: true,
             },
@@ -229,7 +229,7 @@ export class SbPickupPointControllerBase {
           maps: true,
           pickupPoint: true,
 
-          route: {
+          routeId: {
             select: {
               id: true,
             },
@@ -266,7 +266,7 @@ export class SbPickupPointControllerBase {
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -274,31 +274,25 @@ export class SbPickupPointControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (results === null) {

@@ -53,12 +53,12 @@ export class DbEmployeeServiceBase {
     return this.prisma.dbEmployee.delete(args);
   }
 
-  async getCompany(parentId: string): Promise<PrismaDbCompany | null> {
+  async getCompanyId(parentId: string): Promise<PrismaDbCompany | null> {
     return this.prisma.dbEmployee
       .findUnique({
         where: { id: parentId },
       })
-      .company();
+      .companyId();
   }
 
   async getSbEmployees(parentId: string): Promise<PrismaSbEmployee | null> {

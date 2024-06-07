@@ -35,7 +35,7 @@ class SbEmployee {
   @ValidateNested()
   @Type(() => DbEmployee)
   @IsOptional()
-  employee?: DbEmployee | null;
+  employeeId?: DbEmployee | null;
 
   @ApiProperty({
     required: true,
@@ -52,16 +52,34 @@ class SbEmployee {
   @ValidateNested()
   @Type(() => SbPickupPoint)
   @IsOptional()
-  pickupPoint?: SbPickupPoint | null;
+  pickupPointId?: SbPickupPoint | null;
 
   @ApiProperty({
     required: false,
-    type: () => SbOrder,
+    type: () => [SbOrder],
   })
   @ValidateNested()
   @Type(() => SbOrder)
   @IsOptional()
-  sbOrders?: SbOrder | null;
+  sbOrders?: Array<SbOrder>;
+
+  @ApiProperty({
+    required: false,
+    type: () => SbVehicle,
+  })
+  @ValidateNested()
+  @Type(() => SbVehicle)
+  @IsOptional()
+  shift_1UnitId?: SbVehicle | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => SbVehicle,
+  })
+  @ValidateNested()
+  @Type(() => SbVehicle)
+  @IsOptional()
+  shift_2UnitId?: SbVehicle | null;
 
   @ApiProperty({
     required: true,
@@ -70,24 +88,6 @@ class SbEmployee {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
-
-  @ApiProperty({
-    required: false,
-    type: () => SbVehicle,
-  })
-  @ValidateNested()
-  @Type(() => SbVehicle)
-  @IsOptional()
-  vehicleNoShift_1?: SbVehicle | null;
-
-  @ApiProperty({
-    required: false,
-    type: () => SbVehicle,
-  })
-  @ValidateNested()
-  @Type(() => SbVehicle)
-  @IsOptional()
-  vehicleNoShift_2?: SbVehicle | null;
 }
 
 export { SbEmployee as SbEmployee };

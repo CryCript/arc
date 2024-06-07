@@ -25,7 +25,7 @@ class DbEmployee {
   @ValidateNested()
   @Type(() => DbCompany)
   @IsOptional()
-  company?: DbCompany | null;
+  companyId?: DbCompany | null;
 
   @ApiProperty({
     required: true,

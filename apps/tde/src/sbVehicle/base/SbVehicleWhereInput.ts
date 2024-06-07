@@ -11,30 +11,18 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { SbProviderWhereUniqueInput } from "../../sbProvider/base/SbProviderWhereUniqueInput";
-import { ValidateNested, IsOptional, IsEnum } from "class-validator";
-import { Type } from "class-transformer";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { Type } from "class-transformer";
+import { IsOptional, ValidateNested, IsEnum } from "class-validator";
 import { JsonFilter } from "../../util/JsonFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { SbProviderWhereUniqueInput } from "../../sbProvider/base/SbProviderWhereUniqueInput";
 import { SbRouteWhereUniqueInput } from "../../sbRoute/base/SbRouteWhereUniqueInput";
 import { SbEmployeeListRelationFilter } from "../../sbEmployee/base/SbEmployeeListRelationFilter";
 import { EnumSbVehicleVehicleType } from "./EnumSbVehicleVehicleType";
 
 @InputType()
 class SbVehicleWhereInput {
-  @ApiProperty({
-    required: false,
-    type: () => SbProviderWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => SbProviderWhereUniqueInput)
-  @IsOptional()
-  @Field(() => SbProviderWhereUniqueInput, {
-    nullable: true,
-  })
-  company?: SbProviderWhereUniqueInput;
-
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -114,6 +102,18 @@ class SbVehicleWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => SbProviderWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => SbProviderWhereUniqueInput)
+  @IsOptional()
+  @Field(() => SbProviderWhereUniqueInput, {
+    nullable: true,
+  })
+  providerId?: SbProviderWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
     type: () => SbRouteWhereUniqueInput,
   })
   @ValidateNested()
@@ -122,7 +122,7 @@ class SbVehicleWhereInput {
   @Field(() => SbRouteWhereUniqueInput, {
     nullable: true,
   })
-  route?: SbRouteWhereUniqueInput;
+  routeId?: SbRouteWhereUniqueInput;
 
   @ApiProperty({
     required: false,

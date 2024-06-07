@@ -50,7 +50,7 @@ class SbOrderOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  Employee?: SortOrder;
+  employeeIdId?: SortOrder;
 
   @ApiProperty({
     required: false,

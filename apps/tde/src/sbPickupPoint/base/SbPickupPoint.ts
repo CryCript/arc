@@ -63,7 +63,7 @@ class SbPickupPoint {
   @ValidateNested()
   @Type(() => SbRoute)
   @IsOptional()
-  route?: SbRoute | null;
+  routeId?: SbRoute | null;
 
   @ApiProperty({
     required: false,

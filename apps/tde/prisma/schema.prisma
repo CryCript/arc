@@ -8,7 +8,7 @@ generator client {
 }
 
 model User {
-  company   DbCompany? @relation(fields: [company], references: [id])
+  companyId DbCompany? @relation(fields: [company], references: [id])
   company   String?
   createdAt DateTime   @default(now())
   email     String?    @unique
@@ -34,7 +34,7 @@ model DbCompany {
 }
 
 model DbEmployee {
-  company       DbCompany?  @relation(fields: [company], references: [id])
+  companyId     DbCompany?  @relation(fields: [company], references: [id])
   company       String?
   createdAt     DateTime    @default(now())
   id            String      @id @default(cuid())
@@ -45,18 +45,17 @@ model DbEmployee {
 }
 
 model SbEmployee {
-  createdAt        DateTime       @default(now())
-  employee         DbEmployee?
-  id               String         @id @default(cuid())
-  pickupPoint      SbPickupPoint? @relation(fields: [pickupPoint], references: [id])
-  pickupPoint      String?
-  sbOrders         SbOrder?       @relation(fields: [sbOrdersId], references: [id])
-  sbOrdersId       String?        @unique
-  updatedAt        DateTime       @updatedAt
-  vehicleNoShift_1 SbVehicle?     @relation(name: "vehicleNoShift_1", fields: [noUnit], references: [id])
-  noUnit           String?
-  vehicleNoShift_2 SbVehicle?     @relation(name: "sbEmployee", fields: [noUnit], references: [id])
-  noUnit           String?
+  createdAt     DateTime       @default(now())
+  employeeId    DbEmployee?
+  id            String         @id @default(cuid())
+  pickupPointId SbPickupPoint? @relation(fields: [pickupPoint], references: [id])
+  pickupPoint   String?
+  sbOrders      SbOrder[]
+  shift_1UnitId SbVehicle?     @relation(name: "shift_1UnitId", fields: [noUnit], references: [id])
+  noUnit        String?
+  shift_2UnitId SbVehicle?     @relation(name: "sbEmployee", fields: [noUnit], references: [id])
+  noUnit        String?
+  updatedAt     DateTime       @updatedAt
 }
 
 model SbRoute {
@@ -74,7 +73,7 @@ model SbPickupPoint {
   id          String       @id @default(cuid())
   maps        String?
   pickupPoint String?
-  route       SbRoute?     @relation(fields: [route], references: [id])
+  routeId     SbRoute?     @relation(fields: [route], references: [id])
   route       String?
   sbEmployees SbEmployee[]
   updatedAt   DateTime     @updatedAt
@@ -92,8 +91,6 @@ model SbProvider {
 }
 
 model SbVehicle {
-  company      SbProvider?               @relation(fields: [company], references: [id])
-  company      String?
   createdAt    DateTime                  @default(now())
   driver       String?
   driverPhoto  Json?
@@ -102,10 +99,12 @@ model SbVehicle {
   noPol        String?
   noUnit       String?
   phoneNo      String?
-  route        SbRoute?                  @relation(fields: [route], references: [id])
+  providerId   SbProvider?               @relation(fields: [company], references: [id])
+  company      String?
+  routeId      SbRoute?                  @relation(fields: [route], references: [id])
   route        String?
   sbEmployee   SbEmployee[]              @relation(name: "sbEmployee")
-  sbEmployees  SbEmployee[]              @relation(name: "vehicleNoShift_1")
+  sbEmployees  SbEmployee[]              @relation(name: "shift_1UnitId")
   shift        EnumSbVehicleShift[]
   updatedAt    DateTime                  @updatedAt
   vehiclePhoto Json?
@@ -113,12 +112,13 @@ model SbVehicle {
 }
 
 model SbOrder {
-  createdAt DateTime          @default(now())
-  date      DateTime?
-  employee  SbEmployee?
-  id        String            @id @default(cuid())
-  shift     EnumSbOrderShift?
-  updatedAt DateTime          @updatedAt
+  createdAt    DateTime          @default(now())
+  date         DateTime?
+  employeeId   SbEmployee?       @relation(fields: [employeeIdId], references: [id])
+  employeeIdId String?
+  id           String            @id @default(cuid())
+  shift        EnumSbOrderShift?
+  updatedAt    DateTime          @updatedAt
 }
 
 enum EnumSbVehicleShift {

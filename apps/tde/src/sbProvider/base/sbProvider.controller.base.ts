@@ -221,12 +221,6 @@ export class SbProviderControllerBase {
     const results = await this.service.findSbVehicles(params.id, {
       ...query,
       select: {
-        company: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         driver: true,
         driverPhoto: true,
@@ -236,7 +230,13 @@ export class SbProviderControllerBase {
         noUnit: true,
         phoneNo: true,
 
-        route: {
+        providerId: {
+          select: {
+            id: true,
+          },
+        },
+
+        routeId: {
           select: {
             id: true,
           },

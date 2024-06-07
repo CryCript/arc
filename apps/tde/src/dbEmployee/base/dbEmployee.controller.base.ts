@@ -52,9 +52,9 @@ export class DbEmployeeControllerBase {
       data: {
         ...data,
 
-        company: data.company
+        companyId: data.companyId
           ? {
-              connect: data.company,
+              connect: data.companyId,
             }
           : undefined,
 
@@ -65,7 +65,7 @@ export class DbEmployeeControllerBase {
           : undefined,
       },
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -103,7 +103,7 @@ export class DbEmployeeControllerBase {
     return this.service.dbEmployees({
       ...args,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -142,7 +142,7 @@ export class DbEmployeeControllerBase {
     const result = await this.service.dbEmployee({
       where: params,
       select: {
-        company: {
+        companyId: {
           select: {
             id: true,
           },
@@ -191,9 +191,9 @@ export class DbEmployeeControllerBase {
         data: {
           ...data,
 
-          company: data.company
+          companyId: data.companyId
             ? {
-                connect: data.company,
+                connect: data.companyId,
               }
             : undefined,
 
@@ -204,7 +204,7 @@ export class DbEmployeeControllerBase {
             : undefined,
         },
         select: {
-          company: {
+          companyId: {
             select: {
               id: true,
             },
@@ -251,7 +251,7 @@ export class DbEmployeeControllerBase {
       return await this.service.deleteDbEmployee({
         where: params,
         select: {
-          company: {
+          companyId: {
             select: {
               id: true,
             },

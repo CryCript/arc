@@ -16,7 +16,7 @@ import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
 import { SbPickupPointWhereUniqueInput } from "../../sbPickupPoint/base/SbPickupPointWhereUniqueInput";
-import { SbOrderWhereUniqueInput } from "../../sbOrder/base/SbOrderWhereUniqueInput";
+import { SbOrderListRelationFilter } from "../../sbOrder/base/SbOrderListRelationFilter";
 import { SbVehicleWhereUniqueInput } from "../../sbVehicle/base/SbVehicleWhereUniqueInput";
 
 @InputType()
@@ -31,7 +31,7 @@ class SbEmployeeWhereInput {
   @Field(() => DbEmployeeWhereUniqueInput, {
     nullable: true,
   })
-  employee?: DbEmployeeWhereUniqueInput;
+  employeeId?: DbEmployeeWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -54,31 +54,19 @@ class SbEmployeeWhereInput {
   @Field(() => SbPickupPointWhereUniqueInput, {
     nullable: true,
   })
-  pickupPoint?: SbPickupPointWhereUniqueInput;
+  pickupPointId?: SbPickupPointWhereUniqueInput;
 
   @ApiProperty({
     required: false,
-    type: () => SbOrderWhereUniqueInput,
+    type: () => SbOrderListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => SbOrderWhereUniqueInput)
+  @Type(() => SbOrderListRelationFilter)
   @IsOptional()
-  @Field(() => SbOrderWhereUniqueInput, {
+  @Field(() => SbOrderListRelationFilter, {
     nullable: true,
   })
-  sbOrders?: SbOrderWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => SbVehicleWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => SbVehicleWhereUniqueInput)
-  @IsOptional()
-  @Field(() => SbVehicleWhereUniqueInput, {
-    nullable: true,
-  })
-  vehicleNoShift_1?: SbVehicleWhereUniqueInput;
+  sbOrders?: SbOrderListRelationFilter;
 
   @ApiProperty({
     required: false,
@@ -90,7 +78,19 @@ class SbEmployeeWhereInput {
   @Field(() => SbVehicleWhereUniqueInput, {
     nullable: true,
   })
-  vehicleNoShift_2?: SbVehicleWhereUniqueInput;
+  shift_1UnitId?: SbVehicleWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => SbVehicleWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => SbVehicleWhereUniqueInput)
+  @IsOptional()
+  @Field(() => SbVehicleWhereUniqueInput, {
+    nullable: true,
+  })
+  shift_2UnitId?: SbVehicleWhereUniqueInput;
 }
 
 export { SbEmployeeWhereInput as SbEmployeeWhereInput };

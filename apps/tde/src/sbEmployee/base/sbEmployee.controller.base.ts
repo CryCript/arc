@@ -26,6 +26,9 @@ import { SbEmployee } from "./SbEmployee";
 import { SbEmployeeFindManyArgs } from "./SbEmployeeFindManyArgs";
 import { SbEmployeeWhereUniqueInput } from "./SbEmployeeWhereUniqueInput";
 import { SbEmployeeUpdateInput } from "./SbEmployeeUpdateInput";
+import { SbOrderFindManyArgs } from "../../sbOrder/base/SbOrderFindManyArgs";
+import { SbOrder } from "../../sbOrder/base/SbOrder";
+import { SbOrderWhereUniqueInput } from "../../sbOrder/base/SbOrderWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -52,40 +55,34 @@ export class SbEmployeeControllerBase {
       data: {
         ...data,
 
-        employee: data.employee
+        employeeId: data.employeeId
           ? {
-              connect: data.employee,
+              connect: data.employeeId,
             }
           : undefined,
 
-        pickupPoint: data.pickupPoint
+        pickupPointId: data.pickupPointId
           ? {
-              connect: data.pickupPoint,
+              connect: data.pickupPointId,
             }
           : undefined,
 
-        sbOrders: data.sbOrders
+        shift_1UnitId: data.shift_1UnitId
           ? {
-              connect: data.sbOrders,
+              connect: data.shift_1UnitId,
             }
           : undefined,
 
-        vehicleNoShift_1: data.vehicleNoShift_1
+        shift_2UnitId: data.shift_2UnitId
           ? {
-              connect: data.vehicleNoShift_1,
-            }
-          : undefined,
-
-        vehicleNoShift_2: data.vehicleNoShift_2
-          ? {
-              connect: data.vehicleNoShift_2,
+              connect: data.shift_2UnitId,
             }
           : undefined,
       },
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -93,31 +90,25 @@ export class SbEmployeeControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
   }
@@ -141,7 +132,7 @@ export class SbEmployeeControllerBase {
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -149,31 +140,25 @@ export class SbEmployeeControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
   }
@@ -198,7 +183,7 @@ export class SbEmployeeControllerBase {
       select: {
         createdAt: true,
 
-        employee: {
+        employeeId: {
           select: {
             id: true,
           },
@@ -206,31 +191,25 @@ export class SbEmployeeControllerBase {
 
         id: true,
 
-        pickupPoint: {
+        pickupPointId: {
           select: {
             id: true,
           },
         },
 
-        sbOrders: {
+        shift_1UnitId: {
+          select: {
+            id: true,
+          },
+        },
+
+        shift_2UnitId: {
           select: {
             id: true,
           },
         },
 
         updatedAt: true,
-
-        vehicleNoShift_1: {
-          select: {
-            id: true,
-          },
-        },
-
-        vehicleNoShift_2: {
-          select: {
-            id: true,
-          },
-        },
       },
     });
     if (result === null) {
@@ -263,40 +242,34 @@ export class SbEmployeeControllerBase {
         data: {
           ...data,
 
-          employee: data.employee
+          employeeId: data.employeeId
             ? {
-                connect: data.employee,
+                connect: data.employeeId,
               }
             : undefined,
 
-          pickupPoint: data.pickupPoint
+          pickupPointId: data.pickupPointId
             ? {
-                connect: data.pickupPoint,
+                connect: data.pickupPointId,
               }
             : undefined,
 
-          sbOrders: data.sbOrders
+          shift_1UnitId: data.shift_1UnitId
             ? {
-                connect: data.sbOrders,
+                connect: data.shift_1UnitId,
               }
             : undefined,
 
-          vehicleNoShift_1: data.vehicleNoShift_1
+          shift_2UnitId: data.shift_2UnitId
             ? {
-                connect: data.vehicleNoShift_1,
-              }
-            : undefined,
-
-          vehicleNoShift_2: data.vehicleNoShift_2
-            ? {
-                connect: data.vehicleNoShift_2,
+                connect: data.shift_2UnitId,
               }
             : undefined,
         },
         select: {
           createdAt: true,
 
-          employee: {
+          employeeId: {
             select: {
               id: true,
             },
@@ -304,31 +277,25 @@ export class SbEmployeeControllerBase {
 
           id: true,
 
-          pickupPoint: {
+          pickupPointId: {
             select: {
               id: true,
             },
           },
 
-          sbOrders: {
+          shift_1UnitId: {
+            select: {
+              id: true,
+            },
+          },
+
+          shift_2UnitId: {
             select: {
               id: true,
             },
           },
 
           updatedAt: true,
-
-          vehicleNoShift_1: {
-            select: {
-              id: true,
-            },
-          },
-
-          vehicleNoShift_2: {
-            select: {
-              id: true,
-            },
-          },
         },
       });
     } catch (error) {
@@ -361,7 +328,7 @@ export class SbEmployeeControllerBase {
         select: {
           createdAt: true,
 
-          employee: {
+          employeeId: {
             select: {
               id: true,
             },
@@ -369,31 +336,25 @@ export class SbEmployeeControllerBase {
 
           id: true,
 
-          pickupPoint: {
+          pickupPointId: {
             select: {
               id: true,
             },
           },
 
-          sbOrders: {
+          shift_1UnitId: {
+            select: {
+              id: true,
+            },
+          },
+
+          shift_2UnitId: {
             select: {
               id: true,
             },
           },
 
           updatedAt: true,
-
-          vehicleNoShift_1: {
-            select: {
-              id: true,
-            },
-          },
-
-          vehicleNoShift_2: {
-            select: {
-              id: true,
-            },
-          },
         },
       });
     } catch (error) {
@@ -404,5 +365,109 @@ export class SbEmployeeControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/sbOrders")
+  @ApiNestedQuery(SbOrderFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "SbOrder",
+    action: "read",
+    possession: "any",
+  })
+  async findSbOrders(
+    @common.Req() request: Request,
+    @common.Param() params: SbEmployeeWhereUniqueInput
+  ): Promise<SbOrder[]> {
+    const query = plainToClass(SbOrderFindManyArgs, request.query);
+    const results = await this.service.findSbOrders(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        date: true,
+
+        employeeId: {
+          select: {
+            id: true,
+          },
+        },
+
+        id: true,
+        shift: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/sbOrders")
+  @nestAccessControl.UseRoles({
+    resource: "SbEmployee",
+    action: "update",
+    possession: "any",
+  })
+  async connectSbOrders(
+    @common.Param() params: SbEmployeeWhereUniqueInput,
+    @common.Body() body: SbOrderWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      sbOrders: {
+        connect: body,
+      },
+    };
+    await this.service.updateSbEmployee({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/sbOrders")
+  @nestAccessControl.UseRoles({
+    resource: "SbEmployee",
+    action: "update",
+    possession: "any",
+  })
+  async updateSbOrders(
+    @common.Param() params: SbEmployeeWhereUniqueInput,
+    @common.Body() body: SbOrderWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      sbOrders: {
+        set: body,
+      },
+    };
+    await this.service.updateSbEmployee({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/sbOrders")
+  @nestAccessControl.UseRoles({
+    resource: "SbEmployee",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectSbOrders(
+    @common.Param() params: SbEmployeeWhereUniqueInput,
+    @common.Body() body: SbOrderWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      sbOrders: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateSbEmployee({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }
