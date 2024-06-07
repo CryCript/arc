@@ -45,6 +45,9 @@ export class SbOrderControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SbOrderCreateInput,
+  })
   async createSbOrder(
     @common.Body() data: SbOrderCreateInput
   ): Promise<SbOrder> {
@@ -159,6 +162,9 @@ export class SbOrderControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SbOrderUpdateInput,
   })
   async updateSbOrder(
     @common.Param() params: SbOrderWhereUniqueInput,

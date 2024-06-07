@@ -45,6 +45,9 @@ export class DbEmployeeControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: DbEmployeeCreateInput,
+  })
   async createDbEmployee(
     @common.Body() data: DbEmployeeCreateInput
   ): Promise<DbEmployee> {
@@ -180,6 +183,9 @@ export class DbEmployeeControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: DbEmployeeUpdateInput,
   })
   async updateDbEmployee(
     @common.Param() params: DbEmployeeWhereUniqueInput,

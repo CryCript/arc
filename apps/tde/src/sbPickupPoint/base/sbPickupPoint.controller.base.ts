@@ -48,6 +48,9 @@ export class SbPickupPointControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SbPickupPointCreateInput,
+  })
   async createSbPickupPoint(
     @common.Body() data: SbPickupPointCreateInput
   ): Promise<SbPickupPoint> {
@@ -164,6 +167,9 @@ export class SbPickupPointControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SbPickupPointUpdateInput,
   })
   async updateSbPickupPoint(
     @common.Param() params: SbPickupPointWhereUniqueInput,

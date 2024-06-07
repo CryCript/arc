@@ -51,6 +51,9 @@ export class SbRouteControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SbRouteCreateInput,
+  })
   async createSbRoute(
     @common.Body() data: SbRouteCreateInput
   ): Promise<SbRoute> {
@@ -136,6 +139,9 @@ export class SbRouteControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SbRouteUpdateInput,
   })
   async updateSbRoute(
     @common.Param() params: SbRouteWhereUniqueInput,

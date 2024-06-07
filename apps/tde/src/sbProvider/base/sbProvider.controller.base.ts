@@ -48,6 +48,9 @@ export class SbProviderControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SbProviderCreateInput,
+  })
   async createSbProvider(
     @common.Body() data: SbProviderCreateInput
   ): Promise<SbProvider> {
@@ -139,6 +142,9 @@ export class SbProviderControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SbProviderUpdateInput,
   })
   async updateSbProvider(
     @common.Param() params: SbProviderWhereUniqueInput,
