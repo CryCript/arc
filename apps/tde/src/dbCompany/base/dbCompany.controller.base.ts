@@ -51,6 +51,9 @@ export class DbCompanyControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: DbCompanyCreateInput,
+  })
   async createDbCompany(
     @common.Body() data: DbCompanyCreateInput
   ): Promise<DbCompany> {
@@ -142,6 +145,9 @@ export class DbCompanyControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: DbCompanyUpdateInput,
   })
   async updateDbCompany(
     @common.Param() params: DbCompanyWhereUniqueInput,

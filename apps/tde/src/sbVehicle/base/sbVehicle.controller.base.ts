@@ -49,6 +49,9 @@ export class SbVehicleControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SbVehicleCreateInput,
+  })
   async createSbVehicle(
     @common.Body() data: SbVehicleCreateInput
   ): Promise<SbVehicle> {
@@ -208,6 +211,9 @@ export class SbVehicleControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SbVehicleUpdateInput,
   })
   async updateSbVehicle(
     @common.Param() params: SbVehicleWhereUniqueInput,
