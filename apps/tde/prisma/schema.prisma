@@ -45,17 +45,17 @@ model DbEmployee {
 }
 
 model SbEmployee {
-  createdAt     DateTime       @default(now())
-  employeeId    DbEmployee?
-  id            String         @id @default(cuid())
-  pickupPointId SbPickupPoint? @relation(fields: [pickupPoint], references: [id])
-  pickupPoint   String?
-  sbOrders      SbOrder[]
-  shift_1UnitId SbVehicle?     @relation(name: "shift_1UnitId", fields: [noUnit], references: [id])
-  noUnit        String?
-  shift_2UnitId SbVehicle?     @relation(name: "sbEmployee", fields: [noUnit], references: [id])
-  noUnit        String?
-  updatedAt     DateTime       @updatedAt
+  createdAt       DateTime       @default(now())
+  employeeId      DbEmployee?
+  id              String         @id @default(cuid())
+  pickupPointId   SbPickupPoint? @relation(fields: [pickupPoint], references: [id])
+  pickupPoint     String?
+  sbOrders        SbOrder[]
+  shift_1UnitId   SbVehicle?     @relation(name: "shift_1UnitId", fields: [shift_1UnitIdId], references: [id])
+  shift_1UnitIdId String?
+  shift_2UnitId   SbVehicle?     @relation(name: "sbEmployee", fields: [shift_2UnitIdId], references: [id])
+  shift_2UnitIdId String?
+  updatedAt       DateTime       @updatedAt
 }
 
 model SbRoute {
